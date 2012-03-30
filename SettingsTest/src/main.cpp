@@ -17,13 +17,8 @@
 #include "SettingsSaver.h"
 #include "SettingsTestHelper.h"
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
-#ifdef NDEBUG
-#pragma comment(lib, "lib/gtest.lib")
-#else
-#pragma comment(lib, "lib/gtestd.lib")
-#endif
 
 void mstressTest(Settings* settings)
 {
