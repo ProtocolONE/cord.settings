@@ -45,12 +45,6 @@
     <ClCompile Include="GeneratedFiles\Release\moc_Settings.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="src\Settings.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Settings_p.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\settingssaver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -59,6 +53,12 @@
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_settingssaver.cpp">
       <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Settings_p.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

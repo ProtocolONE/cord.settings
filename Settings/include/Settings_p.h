@@ -82,6 +82,8 @@ public:
   QStack<QSettingsGroup> groupStack;
   QString groupPrefix;
 
+static void setConnection( const QString& _connection );
+
 protected:
   mutable QMutex mutex;
 };

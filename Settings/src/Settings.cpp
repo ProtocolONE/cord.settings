@@ -300,7 +300,7 @@ void Settings::setTable(const QString &table)
 
 void Settings::setConnection(const QString& connection)
 {
-  SettingsPrivate::connection = connection;
+  SettingsPrivate::setConnection(connection);
 }
 
 QString Settings::keyColumn() const

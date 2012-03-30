@@ -52,6 +52,7 @@ qDebug() << q.lastError().text();
 \endcode
 \code
 Settings::setConnection(db.connectionName());
+Settings::setSettingsSaver( new SettingsSaver() );
 \endcode
 \li Read|write settings as if the object is QSettings, for e.g:
 \code
