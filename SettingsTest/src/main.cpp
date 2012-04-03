@@ -19,6 +19,7 @@
 
 #include <gtest/gtest.h>
 
+using namespace GGS::Settings;
 
 void mstressTest(Settings* settings)
 {

@@ -3,20 +3,23 @@
 
 #include <QObject>
 #include <qtimer.h>
+namespace GGS {
+    namespace Settings {
 
-class SettingsSaver : public QObject
-{
-    Q_OBJECT
+        class SettingsSaver : public QObject
+        {
+            Q_OBJECT
 
-public:
-    SettingsSaver(QObject *parent = 0);
-    ~SettingsSaver();
+        public:
+            SettingsSaver(QObject *parent = 0);
+            ~SettingsSaver();
 
-private slots:
-    void sync();
+            private slots:
+                void sync();
 
-private:
-    QTimer timer;
-};
-
+        private:
+            QTimer timer;
+        };
+    }
+}
 #endif // SETTINGSSAVER_H
