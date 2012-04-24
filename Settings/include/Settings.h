@@ -91,7 +91,7 @@
 namespace GGS {
     namespace Settings {
 
-        class Settings : public QObject
+        class SETTINGSLIB_EXPORT Settings : public QObject
         {
             Q_OBJECT
 

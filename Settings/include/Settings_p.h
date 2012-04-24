@@ -13,10 +13,16 @@
 #include <QtCore/QRect>
 #endif  //#ifndef QT_NO_GEOM_VARIANT
 
+#ifdef SETTINGS_LIB
+# define SETTINGSLIB_EXPORT Q_DECL_EXPORT
+#else
+# define SETTINGSLIB_EXPORT Q_DECL_IMPORT
+#endif
+
 namespace GGS {
     namespace Settings {
 
-        class QSettingsGroup
+        class SETTINGSLIB_EXPORT QSettingsGroup
         {
         public:
             inline QSettingsGroup()
@@ -49,7 +55,7 @@ namespace GGS {
             return result;
         }
 
-        class SettingsPrivate
+        class SETTINGSLIB_EXPORT SettingsPrivate
         {
         public:
             SettingsPrivate() {}

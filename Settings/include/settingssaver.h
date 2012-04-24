@@ -3,10 +3,11 @@
 
 #include <QObject>
 #include <qtimer.h>
+#include "Settings_p.h"
 namespace GGS {
     namespace Settings {
 
-        class SettingsSaver : public QObject
+        class SETTINGSLIB_EXPORT SettingsSaver : public QObject
         {
             Q_OBJECT
 

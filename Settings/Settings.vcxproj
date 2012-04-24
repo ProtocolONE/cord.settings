@@ -15,11 +15,11 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing Settings.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"   -D_WINDOWS -D_DEBUG -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DUPDATESYSTEM_LIBRARY -DQT_DLL -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_DECLARATIVE_LIB -DQT_GUI_LIB  "-I." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtSql" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include" "-I.\include" "-I.\debug" "-I.\GeneratedFiles" "-I$(VLDDIR)\include" "-I." "-I." "-I." "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"   -D_WINDOWS -D_DEBUG -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DUPDATESYSTEM_LIBRARY -DQT_DLL -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_DECLARATIVE_LIB -DQT_GUI_LIB -DSETTINGS_LIB -D_WINDLL  "-I." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtSql" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include" "-I.\include" "-I.\debug" "-I.\GeneratedFiles" "-I$(VLDDIR)\include" "-I." "-I." "-I." "-I." "-I." "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing Settings.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"   -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DUPDATESYSTEM_LIBRARY -DQT_DLL -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_DECLARATIVE_LIB -DQT_GUI_LIB  "-I." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtSql" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include" "-I.\include" "-I.\debug" "-I.\GeneratedFiles" "-I$(VLDDIR)\include" "-I." "-I." "-I." "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"   -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DUPDATESYSTEM_LIBRARY -DQT_DLL -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_DECLARATIVE_LIB -DQT_GUI_LIB -DSETTINGS_LIB  "-I." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtSql" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include" "-I.\include" "-I.\debug" "-I.\GeneratedFiles" "-I$(VLDDIR)\include" "-I." "-I." "-I." "-I." "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -62,11 +62,11 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing settingssaver.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"   -D_WINDOWS -D_DEBUG -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DUPDATESYSTEM_LIBRARY -DQT_DLL -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_DECLARATIVE_LIB -DQT_GUI_LIB  "-I." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtSql" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include" "-I.\include" "-I.\debug" "-I.\GeneratedFiles" "-I$(VLDDIR)\include" "-I." "-I." "-I." "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"   -D_WINDOWS -D_DEBUG -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DUPDATESYSTEM_LIBRARY -DQT_DLL -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_DECLARATIVE_LIB -DQT_GUI_LIB -DSETTINGS_LIB -D_WINDLL  "-I." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtSql" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include" "-I.\include" "-I.\debug" "-I.\GeneratedFiles" "-I$(VLDDIR)\include" "-I." "-I." "-I." "-I." "-I." "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing settingssaver.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"   -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DUPDATESYSTEM_LIBRARY -DQT_DLL -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_DECLARATIVE_LIB -DQT_GUI_LIB  "-I." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtSql" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include" "-I.\include" "-I.\debug" "-I.\GeneratedFiles" "-I$(VLDDIR)\include" "-I." "-I." "-I." "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"   -DQT_NO_DEBUG -DNDEBUG -D_WINDOWS -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DUPDATESYSTEM_LIBRARY -DQT_DLL -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_HAVE_MMX -DQT_HAVE_3DNOW -DQT_HAVE_SSE -DQT_HAVE_MMXEXT -DQT_HAVE_SSE2 -DQT_THREAD_SUPPORT -DQT_DECLARATIVE_LIB -DQT_GUI_LIB -DSETTINGS_LIB  "-I." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtSql" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include" "-I.\include" "-I.\debug" "-I.\GeneratedFiles" "-I$(VLDDIR)\include" "-I." "-I." "-I." "-I." "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"</Command>
     </CustomBuild>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -76,11 +76,11 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -125,7 +125,7 @@
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;_DEBUG;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;UPDATESYSTEM_LIBRARY;QT_DLL;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;QT_THREAD_SUPPORT;QT_DECLARATIVE_LIB;QT_GUI_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;_DEBUG;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;UPDATESYSTEM_LIBRARY;QT_DLL;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;QT_THREAD_SUPPORT;QT_DECLARATIVE_LIB;QT_GUI_LIB;SETTINGS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -134,7 +134,7 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(QTDIR)\lib\QtXmld4.lib;$(QTDIR)\lib\QtNetworkd4.lib;$(QTDIR)\lib\QtCored4.lib;$(QTDIR)\lib\QtDeclaratived4.lib;$(QTDIR)\lib\QtGuid4.lib;$(ProjectDir)lib\7z\Debug\7z.lib;QtDeclaratived4.lib;QtGuid4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(QTDIR)\lib\QtXmld4.lib;$(QTDIR)\lib\QtNetworkd4.lib;$(QTDIR)\lib\QtCored4.lib;$(QTDIR)\lib\QtDeclaratived4.lib;$(QTDIR)\lib\QtGuid4.lib;$(QTDIR)\lib\QtSqld4.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;c:\QtSDK\Desktop\Qt\4.7.4\msvc2008\lib;$(ProjectDir)lib\7z\;$(VLDDIR)\lib\Win32\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <LinkTimeCodeGeneration>
@@ -163,12 +163,6 @@ xcopy /Y /I /R "$(TargetDir)*.dll" "$(QGNACOMMONDIR)\GGS\$(SolutionName)\$(Commo
 xcopy /Y /I /R "$(TargetDir)*.lib" "$(QGNACOMMONDIR)\GGS\$(SolutionName)\$(CommonArea)\lib"
 xcopy /Y /I /R /E "$(ProjectDir)include\*.h" "$(QGNACOMMONDIR)\GGS\$(SolutionName)\$(CommonArea)\include\$(SolutionName)"
 xcopy /Y /I /R /E "$(ProjectDir)include\*" "$(QGNACOMMONDIR)\GGS\$(SolutionName)\$(CommonArea)\include\$(SolutionName)"
-
-@echo xcopy /Y /I /R "$(TargetDir)*.dll" "$(QGNACOMMONDIR)\GGS\$(SolutionName)\$(CommonArea)\bin"
-@echo xcopy /Y /I /R "$(TargetDir)*.lib" "$(QGNACOMMONDIR)\GGS\$(SolutionName)\$(CommonArea)\lib"
-@echo xcopy /Y /I /R /E "$(ProjectDir)include\*.h" "$(QGNACOMMONDIR)\GGS\$(SolutionName)\$(CommonArea)\include\$(SolutionName)"
-@echo xcopy /Y /I /R /E "$(ProjectDir)include\*" "$(QGNACOMMONDIR)\GGS\$(SolutionName)\$(CommonArea)\include\$(SolutionName)"
-
 ) else (
 ECHO QGNACOMMONDIR not defined!
 EXIT /B 1
@@ -188,7 +182,7 @@ EXIT /B 1
       <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>QT_NO_DEBUG;NDEBUG;_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;UPDATESYSTEM_LIBRARY;QT_DLL;QT_NO_DEBUG;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;QT_THREAD_SUPPORT;NDEBUG;QT_DECLARATIVE_LIB;QT_GUI_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>QT_NO_DEBUG;NDEBUG;_WINDOWS;UNICODE;WIN32;QT_LARGEFILE_SUPPORT;UPDATESYSTEM_LIBRARY;QT_DLL;QT_XML_LIB;QT_NETWORK_LIB;QT_CORE_LIB;QT_HAVE_MMX;QT_HAVE_3DNOW;QT_HAVE_SSE;QT_HAVE_MMXEXT;QT_HAVE_SSE2;QT_THREAD_SUPPORT;QT_DECLARATIVE_LIB;QT_GUI_LIB;SETTINGS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -197,7 +191,7 @@ EXIT /B 1
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(QTDIR)\lib\QtXml4.lib;$(QTDIR)\lib\QtNetwork4.lib;$(QTDIR)\lib\QtCore4.lib;$(ProjectDir)lib\7z\Release\7z.lib;QtDeclarative4.lib;QtGui4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(QTDIR)\lib\QtXml4.lib;$(QTDIR)\lib\QtNetwork4.lib;$(QTDIR)\lib\QtCore4.lib;$(QTDIR)\lib\QtSql4.lib;$(QTDIR)\lib\QtDeclarative4.lib;$(QTDIR)\lib\QtGui4.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;c:\QtSDK\Desktop\Qt\4.7.4\msvc2008\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <LinkTimeCodeGeneration>
