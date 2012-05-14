@@ -134,7 +134,7 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(QTDIR)\lib\QtXmld4.lib;$(QTDIR)\lib\QtNetworkd4.lib;$(QTDIR)\lib\QtCored4.lib;$(QTDIR)\lib\QtDeclaratived4.lib;$(QTDIR)\lib\QtGuid4.lib;$(QTDIR)\lib\QtSqld4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(QTDIR)\lib\QtCored4.lib;$(QTDIR)\lib\QtSqld4.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;c:\QtSDK\Desktop\Qt\4.7.4\msvc2008\lib;$(ProjectDir)lib\7z\;$(VLDDIR)\lib\Win32\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <LinkTimeCodeGeneration>
@@ -191,7 +191,7 @@ EXIT /B 1
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(QTDIR)\lib\QtXml4.lib;$(QTDIR)\lib\QtNetwork4.lib;$(QTDIR)\lib\QtCore4.lib;$(QTDIR)\lib\QtSql4.lib;$(QTDIR)\lib\QtDeclarative4.lib;$(QTDIR)\lib\QtGui4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(QTDIR)\lib\QtCore4.lib;$(QTDIR)\lib\QtSql4.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;c:\QtSDK\Desktop\Qt\4.7.4\msvc2008\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <LinkTimeCodeGeneration>

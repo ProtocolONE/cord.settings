@@ -19,6 +19,11 @@
 
 #include <gtest/gtest.h>
 
+#include "SerializeTestClass.h"
+#include <QtCore/QMap>
+#include <QtCore/QByteArray>
+#include <QtCore/QDataStream>
+
 using namespace GGS::Settings;
 
 void mstressTest(Settings* settings)
@@ -71,6 +76,33 @@ bool checkStressTest(Settings* settings, int count)
     testResult = true;
 
   return testResult;
+}
+
+
+TEST(serializeTests, toQByteArray)
+{
+  QHash<QString, SerializeTestClass> someMap;
+  someMap["test1"].someInt = 12;
+  someMap["test1"].someReal = 13.3f;
+  someMap["test1"].str = "str1";
+  someMap["test2"].someInt = 22;
+  someMap["test2"].someReal = 23.3f;
+  someMap["test2"].str = "str2";
+
+  QByteArray ba;
+  QDataStream out1(&ba, QIODevice::WriteOnly);
+  out1.setVersion(QDataStream::Qt_4_7);
+  out1 << someMap;
+
+  Settings settings;
+  settings.beginGroup("serializeTests");
+  settings.setValue("key", ba);
+
+  QByteArray baResult = settings.value("key", QByteArray()).toByteArray();
+  QDataStream in1(&baResult, QIODevice::ReadOnly);
+  in1.setVersion(QDataStream::Qt_4_7);
+  QHash<QString, SerializeTestClass> someMap2;
+  in1 >> someMap2;
 }
 
 
@@ -424,6 +456,8 @@ int main(int argc, char *argv[])
 
   Settings::setConnection(db.connectionName());
   Settings::setSettingsSaver( new SettingsSaver() );
+
+  qRegisterMetaType<SerializeTestClass>("SerializeTestClass");
 
   QFuture<int> testResult = QtConcurrent::run(runTests);
   a.exec();
