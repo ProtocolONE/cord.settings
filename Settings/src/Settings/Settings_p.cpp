@@ -1,19 +1,15 @@
+#include <Settings/Settings_p.h>
 
+#include <QtCore/QDebug>
 #include <QtCore/QMutex>
-
 #include <QtCore/QStringList>
 #include <QtCore/QStack>
-
 #include <QtSql/QSqlDriver>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlRecord>
 #include <QtSql/QSqlField>
 #include <QtSql/QSqlError>
-
 #include <QSqlDatabase>
-#include <QDebug>
-
-#include "Settings_p.h"
 
 namespace GGS {
     namespace Settings {

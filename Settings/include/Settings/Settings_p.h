@@ -1,11 +1,21 @@
-#ifndef QTSQLSETTING_P_H
-#define QTSQLSETTING_P_H
+/****************************************************************************
+** This file is a part of Syncopate Limited GameNet Application or it parts.
+**
+** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates. 
+** All rights reserved.
+**
+** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
+** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+****************************************************************************/
+
+#ifndef _GGS_SETTINGS_QTSQLSETTING_P_H
+#define _GGS_SETTINGS_QTSQLSETTING_P_H
+
+#include <Settings/settings_global.h>
 
 #include <QtCore/QMutex>
-
 #include <QtCore/QStringList>
 #include <QtCore/QStack>
-
 #include <QtSql/QSqlRecord>
 #include <QtSql/QSqlField>
 
@@ -13,16 +23,10 @@
 #include <QtCore/QRect>
 #endif  //#ifndef QT_NO_GEOM_VARIANT
 
-#ifdef SETTINGS_LIB
-# define SETTINGSLIB_EXPORT Q_DECL_EXPORT
-#else
-# define SETTINGSLIB_EXPORT Q_DECL_IMPORT
-#endif
-
 namespace GGS {
     namespace Settings {
 
-        class SETTINGSLIB_EXPORT QSettingsGroup
+        class QSettingsGroup
         {
         public:
             inline QSettingsGroup()
@@ -55,7 +59,7 @@ namespace GGS {
             return result;
         }
 
-        class SETTINGSLIB_EXPORT SettingsPrivate
+        class SettingsPrivate
         {
         public:
             SettingsPrivate() {}
@@ -91,11 +95,11 @@ namespace GGS {
             QStack<QSettingsGroup> groupStack;
             QString groupPrefix;
 
-            static void setConnection( const QString& _connection );
+            static void setConnection(const QString& _connection);
 
         protected:
             mutable QMutex mutex;
         };
     }
 }
-#endif //#ifndef QTSQLSETTING_P_H
+#endif //#ifndef _GGS_SETTINGS_QTSQLSETTING_P_H

@@ -1,83 +1,21 @@
-#include <Windows.h>
-//#include <vld.h>
+#include <Settings/Settings.h>
+#include <Settings/SettingsSaver.h>
+#include <Settings/InitializeHelper.h>
 
+#include <QtCore/QDebug>
 #include <QtCore/QCoreApplication>
-#include <qsqldatabase.h>
-#include <qstringlist.h>
-#include <qsqlquery.h>
-#include <qsqlerror.h>
-#include <qdebug.h>
-#include <qdatetime.h>
-#include <qelapsedtimer.h>
-#include <qwaitcondition.h>
-#include <QtConcurrentRun>
-#include <qmutex.h>
-#include <qtimer.h>
-#include "Settings.h"
-#include "SettingsSaver.h"
-#include "SettingsTestHelper.h"
+#include <QtCore/QStringList>
+#include <QtCore/QElapsedTimer>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
+#include <QtSql/QSqlError>
 
+#include <QtConcurrentRun>
 #include <gtest/gtest.h>
 
 #include "SerializeTestClass.h"
-#include <QtCore/QMap>
-#include <QtCore/QByteArray>
-#include <QtCore/QDataStream>
 
 using namespace GGS::Settings;
-
-void mstressTest(Settings* settings)
-{
-  settings->setValue("abcd1",123);
-  settings->setValue("New Value", QStringList() << "First line" << "SecondLine");
-  settings->setValue("group1/value1", QVariantList() << 1 << 3);
-  settings->setValue("bytearray", QByteArray("bytearray", 9));
-
-  for (int i=0; i < 10; ++i){
-    if (settings->setValue("new value " + QString::number(i), i));
-  }
-}
-
-void mAsyncstressTest(Settings* settings)
-{
-  settings->setValue("abcd1",123);
-  settings->setValue("New Value", QStringList() << "First line" << "SecondLine");
-  settings->setValue("group1/value1", QVariantList() << 1 << 3);
-  settings->setValue("bytearray", QByteArray("bytearray", 9));
-
-  for (int i=0; i < 10000; ++i){
-    if (settings->setValue("new value " + QString::number(i), i, false));
-  }
-}
-
-bool checkStressTest(Settings* settings, int count)
-{
-  bool testResult = false;
-  for (int i=0; i < count; ++i){
-    int _t = settings->value("new value " + QString::number(i)).toInt();
-
-    if (i != _t)
-      testResult = true;
-  }
-
-  if (settings->value("abcd1").toInt() != 123)
-    testResult = true;
-
-  QStringList str = settings->value("New Value").toStringList();
-  if (str.value(0) != "First line" || str.value(1) != "SecondLine")
-    testResult = true;
-
-  QList<QVariant> vlist = settings->value("group1/value1").toList();
-  if (vlist.value(0).toInt() != 1 || vlist.value(1).toInt() != 3)
-    testResult = true;
-
-  QByteArray barray = settings->value("bytearray").toByteArray();
-  if (barray.count() != 9)
-    testResult = true;
-
-  return testResult;
-}
-
 
 TEST(serializeTests, toQByteArray)
 {
@@ -104,7 +42,6 @@ TEST(serializeTests, toQByteArray)
   QHash<QString, SerializeTestClass> someMap2;
   in1 >> someMap2;
 }
-
 
 TEST(stressTest, stressTest)
 {
@@ -152,7 +89,6 @@ TEST(stressTest, stressTest)
 
   ASSERT_FALSE(testResult);
 }
-
 
 bool stressTest(Settings* settings)
 {
@@ -340,127 +276,17 @@ TEST(syncAsyncTest, syncAsyncTest)
   QElapsedTimer timer;
   timer.start();
   for (int i=0; i < 500; ++i){
-      int _t = settings->setValue("new value async " + QString::number(i*2), QString::number(i*2), false);
+    int _t = settings->setValue("new value async " + QString::number(i*2), QString::number(i*2), false);
   }
- int asyncTime = timer.elapsed();
+  int asyncTime = timer.elapsed();
 
   timer.start();
   for (int i=0; i < 100; ++i){
-      int _t = settings->setValue("new value sync " + QString::number(i), QString::number(i), true);
+    int _t = settings->setValue("new value sync " + QString::number(i), QString::number(i), true);
   }
   int syncTime = timer.elapsed();
 
   ASSERT_TRUE(syncTime > asyncTime);
 
   delete settings;
-}
-
-int runTests()
-{
- int result = RUN_ALL_TESTS();
- QCoreApplication::quit();
- return result;
-}
-
-TEST(threadedStressTest,threadedStressTest)
-{
-  Settings* settings = new Settings();
-
-  settings->clear();
-  ASSERT_FALSE( settings->allKeys().count() );
-
-  for (int i = 0; i < 1; ++i)
-  {
-    QFuture<void> future = QtConcurrent::run(&mstressTest, settings);
-    QFuture<void> future2 = QtConcurrent::run(&mstressTest, settings);
-    QFuture<void> future3 = QtConcurrent::run(&mstressTest, settings);
-    QFuture<void> future4 = QtConcurrent::run(&mstressTest, settings);
-    QFuture<void> future5 = QtConcurrent::run(&mstressTest, settings);
-    QFuture<void> future6 = QtConcurrent::run(&mstressTest, settings);
-    QFuture<void> future7 = QtConcurrent::run(&mstressTest, settings);
-    QFuture<void> future8 = QtConcurrent::run(&mstressTest, settings);
-    QFuture<void> future9 = QtConcurrent::run(&mstressTest, settings);
-    QFuture<void> future10 = QtConcurrent::run(&mstressTest, settings);
-
-    future.waitForFinished();
-    future2.waitForFinished();
-    future3.waitForFinished();
-    future4.waitForFinished();
-    future5.waitForFinished();
-    future6.waitForFinished();
-    future7.waitForFinished();
-    future8.waitForFinished();
-    future9.waitForFinished();
-    future10.waitForFinished();
-
-    ASSERT_FALSE(checkStressTest(settings, 10));
-  }
-  delete settings;
-}
-
-TEST(threadedStressTest,asyncThreadedStressTest)
-{
-  Settings* settings = new Settings();
-
-  settings->clear();
-  ASSERT_FALSE( settings->allKeys().count() );
-
-  for (int i = 0; i < 1; ++i)
-  {
-    QFuture<void> future = QtConcurrent::run(&mAsyncstressTest, settings);
-    QFuture<void> future2 = QtConcurrent::run(&mAsyncstressTest, settings);
-    QFuture<void> future3 = QtConcurrent::run(&mAsyncstressTest, settings);
-    QFuture<void> future4 = QtConcurrent::run(&mAsyncstressTest, settings);
-    QFuture<void> future5 = QtConcurrent::run(&mAsyncstressTest, settings);
-    QFuture<void> future6 = QtConcurrent::run(&mAsyncstressTest, settings);
-    QFuture<void> future7 = QtConcurrent::run(&mAsyncstressTest, settings);
-    QFuture<void> future8 = QtConcurrent::run(&mAsyncstressTest, settings);
-    QFuture<void> future9 = QtConcurrent::run(&mAsyncstressTest, settings);
-    QFuture<void> future10 = QtConcurrent::run(&mAsyncstressTest, settings);
-
-    future.waitForFinished();
-    future2.waitForFinished();
-    future3.waitForFinished();
-    future4.waitForFinished();
-    future5.waitForFinished();
-    future6.waitForFinished();
-    future7.waitForFinished();
-    future8.waitForFinished();
-    future9.waitForFinished();
-    future10.waitForFinished();
-
-    ASSERT_FALSE(checkStressTest(settings, 1000));
-  }
-  delete settings;
-}
-
-int main(int argc, char *argv[])
-{
-  QCoreApplication a(argc, argv);
-  testing::InitGoogleTest(&argc, argv);
-  QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-  db.setDatabaseName("database");
-  if (db.open("admin", "admin")) {
-
-    if (!db.tables().contains("app_settings")) {
-      QSqlQuery q = db.exec("CREATE TABLE app_settings "
-        "( "
-        "	key_column text NOT NULL, "
-        "	value_column text, "
-        "	CONSTRAINT app_settings_pk PRIMARY KEY (key_column) "
-        ")");
-      if (q.lastError().isValid())
-        qDebug() << q.lastError().text();
-    }
-  }
-
-  Settings::setConnection(db.connectionName());
-  Settings::setSettingsSaver( new SettingsSaver() );
-
-  qRegisterMetaType<SerializeTestClass>("SerializeTestClass");
-
-  QFuture<int> testResult = QtConcurrent::run(runTests);
-  a.exec();
-
-  return testResult.result();
 }

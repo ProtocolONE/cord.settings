@@ -28,19 +28,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
+    <ClCompile Include="src\StressTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\settingstesthelper.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_settingstesthelper.cpp">
-      <Filter>Generated Files\Debug</Filter>
+    <ClCompile Include="src\InitializeHelperTest.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_settingstesthelper.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="SerializeTestClass.cpp">
+    <ClCompile Include="src\SettingsTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_SerializeTestClass.cpp">
@@ -49,12 +46,12 @@
     <ClCompile Include="GeneratedFiles\Release\moc_SerializeTestClass.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="src\SerializeTestClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="src\settingstesthelper.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="SerializeTestClass.h">
+    <CustomBuild Include="include\SerializeTestClass.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
