@@ -18,8 +18,7 @@
 #include <QtCore/QSettings>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
-
-#include <QMutex>
+#include <QtCore/QMutex>
 
 /*!
   The Settings class provides persistent platform-independent application settings. Settings are stored in database.
@@ -149,6 +148,7 @@ namespace GGS {
 
       static void setSettingsSaver(SettingsSaver* settingsSaver); 
 
+      static bool isInitialized();
     private:
       static QString _deleteQueryTemplate;
       static QString _removeQueryTemplate;
@@ -159,6 +159,8 @@ namespace GGS {
       static QMutex lockMutex;
       static bool isBeginTransaction;
       static SettingsSaver* _settingsSaver;
+
+      static bool _isInitialized;
     };
   }
 }

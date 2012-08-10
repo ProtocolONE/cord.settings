@@ -24,6 +24,8 @@ namespace GGS {
     bool Settings::isBeginTransaction = false;
     SettingsSaver* Settings::_settingsSaver;
 
+    bool Settings::_isInitialized = false;
+
     QMutex Settings::lockMutex;
 
     Settings::Settings(QObject *parent)
@@ -284,6 +286,7 @@ namespace GGS {
     void Settings::setConnection(const QString& connection)
     {
       SettingsPrivate::setConnection(connection);
+      _isInitialized = true;
     }
 
     QString Settings::keyColumn() const
@@ -331,5 +334,11 @@ namespace GGS {
       Q_CHECK_PTR(settingsSaver);
       _settingsSaver = settingsSaver;
     }
+
+    bool Settings::isInitialized()
+    {
+      return _isInitialized;
+    }
+
   }
 }
