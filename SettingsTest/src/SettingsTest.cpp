@@ -6,6 +6,8 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QStringList>
 #include <QtCore/QElapsedTimer>
+#include <QtCore/QDate>
+
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
@@ -289,4 +291,36 @@ TEST(syncAsyncTest, syncAsyncTest)
   ASSERT_TRUE(syncTime > asyncTime);
 
   delete settings;
+}
+
+TEST(settingsCache, cacheTest) {
+  Settings settings;
+  QString key("cacheTest_key1");
+  QDate value = QDate::currentDate();
+
+  Settings::setCacheEnabled(true);
+  ASSERT_FALSE(settings.contains(key));
+
+  settings.setValue(key, value);
+  ASSERT_EQ(value, settings.value(key, QVariant()));
+
+  Settings::setCacheEnabled(false);
+  ASSERT_EQ(value, settings.value(key, QVariant()));
+}
+
+TEST(settingsCache, cacheTest2) {
+  Settings settings;
+  QString key("cacheTest_key2");
+  QDate value = QDate::currentDate();
+
+  Settings::setCacheEnabled(true);
+  ASSERT_FALSE(settings.contains(key));
+  Settings::setCacheEnabled(false);
+  ASSERT_FALSE(settings.contains(key));
+
+  settings.setValue(key, value);
+  ASSERT_EQ(value, settings.value(key, QVariant()));
+
+  Settings::setCacheEnabled(true);
+  ASSERT_EQ(value, settings.value(key, QVariant()));
 }

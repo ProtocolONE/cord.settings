@@ -28,6 +28,10 @@ namespace GGS {
 
     QMutex Settings::lockMutex;
 
+    QHash<QString, QVariant> Settings::_cache;
+    QMutex Settings::_cacheMutex;
+    bool Settings::_isCacheEnabled = false;
+
     Settings::Settings(QObject *parent)
       : QObject(parent),
         _settingsPrivate(new SettingsPrivate())
@@ -228,6 +232,7 @@ namespace GGS {
         db.driver()->beginTransaction();
         isBeginTransaction = true;
       }
+
       if (isInstantlySave && isBeginTransaction)
         Settings::sync();
 
@@ -241,6 +246,7 @@ namespace GGS {
         return true;
       } 
 
+      Settings::putToCache(k, value);
       return false;
     }
 
@@ -249,19 +255,25 @@ namespace GGS {
       Q_ASSERT(!SettingsPrivate::connection.isEmpty());
       QString k = this->_settingsPrivate->actualKey(key);
 
+      QVariant cacheResult;
+      if (Settings::tryGetFromCache(k, cacheResult)) {
+        return cacheResult;
+      }
+
       QSqlDatabase db = QSqlDatabase::database(this->_settingsPrivate->connection);
       QSqlQuery sqlQuery(db);
 
       sqlQuery.prepare(selectQueryTemplate());
       sqlQuery.addBindValue(k);
 
-      if (!(sqlQuery.exec( )))
-      {
+      if (!(sqlQuery.exec())) {
+
         qWarning() << Q_FUNC_INFO;
         qWarning() << sqlQuery.lastError().text();
 
         return defaultValue;
       }  
+
       if (sqlQuery.first())
         return this->_settingsPrivate->stringToVariant(sqlQuery.value(1).toString());
 
@@ -340,5 +352,31 @@ namespace GGS {
       return _isInitialized;
     }
 
+    bool Settings::tryGetFromCache(const QString& normalizedKey, QVariant& result)
+    {
+      if (!Settings::_isCacheEnabled)
+        return false;
+
+      QMutexLocker locker(&_cacheMutex);
+      if (!_cache.contains(normalizedKey))
+        return false;
+
+      result = _cache[normalizedKey];
+      return true;
+    }
+
+    void Settings::putToCache(const QString& normalizedKey, const QVariant& value)
+    {
+      if (!Settings::_isCacheEnabled)
+        return;
+
+      QMutexLocker locker(&_cacheMutex);
+      _cache[normalizedKey] = value;
+    }
+
+    void Settings::setCacheEnabled(bool enabled)
+    {
+      Settings::_isCacheEnabled = enabled;
+    }
   }
 }

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** This file is a part of Syncopate Limited GameNet Application or it parts.
 **
-** Copyright (В©) 2011 - 2012, Syncopate Limited and/or affiliates. 
+** Copyright (Р’В©) 2011 - 2012, Syncopate Limited and/or affiliates. 
 ** All rights reserved.
 **
 ** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
@@ -53,8 +53,8 @@
   Settings::setConnection(db.connectionName());
   Settings::setSettingsSaver( new SettingsSaver() ); 
 
-  // Задание SettingsSaver необходимо для сохранения ключей которые сохраняются через 1 сек. интервалы,
-  // подробности ниже.
+  // Р—Р°РґР°РЅРёРµ SettingsSaver РЅРµРѕР±С…РѕРґРёРјРѕ РґР»СЏ СЃРѕС…СЂР°РЅРµРЅРёСЏ РєР»СЋС‡РµР№ РєРѕС‚РѕСЂС‹Рµ СЃРѕС…СЂР°РЅСЏСЋС‚СЃСЏ С‡РµСЂРµР· 1 СЃРµРє. РёРЅС‚РµСЂРІР°Р»С‹,
+  // РїРѕРґСЂРѕР±РЅРѕСЃС‚Рё РЅРёР¶Рµ.
 
   Read|write settings as if the object is QSettings, for e.g:
 
@@ -63,28 +63,29 @@
   settings->setValue("bytearray", QByteArray("bytearray", 9));
 
 
-  Метод setValue последним параметром принимает значение, которое указывает на необходимость принудительно записи
-  в базу (true), или (false) при которой ключи будут сгруппированы в течении 1 секунды в одну транзакцию, и сохранятся
-  намного быстрее чем при мгновенной записи.
+  РњРµС‚РѕРґ setValue РїРѕСЃР»РµРґРЅРёРј РїР°СЂР°РјРµС‚СЂРѕРј РїСЂРёРЅРёРјР°РµС‚ Р·РЅР°С‡РµРЅРёРµ, РєРѕС‚РѕСЂРѕРµ СѓРєР°Р·С‹РІР°РµС‚ РЅР° РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚СЊ РїСЂРёРЅСѓРґРёС‚РµР»СЊРЅРѕ Р·Р°РїРёСЃРё
+  РІ Р±Р°Р·Сѓ (true), РёР»Рё (false) РїСЂРё РєРѕС‚РѕСЂРѕР№ РєР»СЋС‡Рё Р±СѓРґСѓС‚ СЃРіСЂСѓРїРїРёСЂРѕРІР°РЅС‹ РІ С‚РµС‡РµРЅРёРё 1 СЃРµРєСѓРЅРґС‹ РІ РѕРґРЅСѓ С‚СЂР°РЅР·Р°РєС†РёСЋ, Рё СЃРѕС…СЂР°РЅСЏС‚СЃСЏ
+  РЅР°РјРЅРѕРіРѕ Р±С‹СЃС‚СЂРµРµ С‡РµРј РїСЂРё РјРіРЅРѕРІРµРЅРЅРѕР№ Р·Р°РїРёСЃРё.
 
-  Некоторые оптимизации. 
+  РќРµРєРѕС‚РѕСЂС‹Рµ РѕРїС‚РёРјРёР·Р°С†РёРё. 
 
-  Если вам необходимо сохранять сразу несколько ключей, никогда не используйте мгновенную запись!
-  Это операция может занять довольно большйо промежуток времени. Одна запись может длится от 80 до 300 мс. Почему это так
-  можно почитать здесь http://www.sqlite.org/faq.html#q19.
+  Р•СЃР»Рё РІР°Рј РЅРµРѕР±С…РѕРґРёРјРѕ СЃРѕС…СЂР°РЅСЏС‚СЊ СЃСЂР°Р·Сѓ РЅРµСЃРєРѕР»СЊРєРѕ РєР»СЋС‡РµР№, РЅРёРєРѕРіРґР° РЅРµ РёСЃРїРѕР»СЊР·СѓР№С‚Рµ РјРіРЅРѕРІРµРЅРЅСѓСЋ Р·Р°РїРёСЃСЊ!
+  Р­С‚Рѕ РѕРїРµСЂР°С†РёСЏ РјРѕР¶РµС‚ Р·Р°РЅСЏС‚СЊ РґРѕРІРѕР»СЊРЅРѕ Р±РѕР»СЊС€Р№Рѕ РїСЂРѕРјРµР¶СѓС‚РѕРє РІСЂРµРјРµРЅРё. РћРґРЅР° Р·Р°РїРёСЃСЊ РјРѕР¶РµС‚ РґР»РёС‚СЃСЏ РѕС‚ 80 РґРѕ 300 РјСЃ. РџРѕС‡РµРјСѓ СЌС‚Рѕ С‚Р°Рє
+  РјРѕР¶РЅРѕ РїРѕС‡РёС‚Р°С‚СЊ Р·РґРµСЃСЊ http://www.sqlite.org/faq.html#q19.
 
-  При записи множества значений сразу, используйте следующий код
+  РџСЂРё Р·Р°РїРёСЃРё РјРЅРѕР¶РµСЃС‚РІР° Р·РЅР°С‡РµРЅРёР№ СЃСЂР°Р·Сѓ, РёСЃРїРѕР»СЊР·СѓР№С‚Рµ СЃР»РµРґСѓСЋС‰РёР№ РєРѕРґ
   settings->setValue("a1", 1, false);
   settings->setValue("a2", 1, false);
   settings->setValue("a3", 1, false);
   settings->setValue("a4", 1, false);
   ...
-  settings->setValue("a10", 10, true); // обратите внимание на последний true!
+  settings->setValue("a10", 10, true); // РѕР±СЂР°С‚РёС‚Рµ РІРЅРёРјР°РЅРёРµ РЅР° РїРѕСЃР»РµРґРЅРёР№ true!
 
-  При таком подходе, вышеперечисленные ключи будут сохранены в одно транзакции, что в РАЗЫ значительно ускорит сохранение.
-  Последний параметр вы задали как true, для того что-бы все наши значения сохранились сразу, а не ожидали еще 1 секунду в
-  очереди на запись.
+  РџСЂРё С‚Р°РєРѕРј РїРѕРґС…РѕРґРµ, РІС‹С€РµРїРµСЂРµС‡РёСЃР»РµРЅРЅС‹Рµ РєР»СЋС‡Рё Р±СѓРґСѓС‚ СЃРѕС…СЂР°РЅРµРЅС‹ РІ РѕРґРЅРѕ С‚СЂР°РЅР·Р°РєС†РёРё, С‡С‚Рѕ РІ Р РђР—Р« Р·РЅР°С‡РёС‚РµР»СЊРЅРѕ СѓСЃРєРѕСЂРёС‚ СЃРѕС…СЂР°РЅРµРЅРёРµ.
+  РџРѕСЃР»РµРґРЅРёР№ РїР°СЂР°РјРµС‚СЂ РІС‹ Р·Р°РґР°Р»Рё РєР°Рє true, РґР»СЏ С‚РѕРіРѕ С‡С‚Рѕ-Р±С‹ РІСЃРµ РЅР°С€Рё Р·РЅР°С‡РµРЅРёСЏ СЃРѕС…СЂР°РЅРёР»РёСЃСЊ СЃСЂР°Р·Сѓ, Р° РЅРµ РѕР¶РёРґР°Р»Рё РµС‰Рµ 1 СЃРµРєСѓРЅРґСѓ РІ
+  РѕС‡РµСЂРµРґРё РЅР° Р·Р°РїРёСЃСЊ.
 
+  РњРµС‚РѕРґС‹ setValue/value РїРѕРґРґРµСЂР¶РёРІР°СЋС‚ РєРµС€РёСЂРѕРІР°РЅРёРµ. Р’РєР»СЋС‡РёС‚СЊ РµРіРѕ РјРѕР¶РЅРѕ С‡РµСЂРµР· С„СѓРЅРєС†РёСЋ setCacheEnabled.
 
   @class Settings Settings.h
 */
@@ -128,6 +129,7 @@ namespace GGS {
       QString group() const;
       bool  remove(const QString& key);
       void  setArrayIndex(int i);
+
       bool  setValue(const QString& key, const QVariant& value, bool isInstantlySave = true);
       QVariant value(const QString& key, const QVariant& defaultValue = QVariant()) const;
 
@@ -149,6 +151,8 @@ namespace GGS {
       static void setSettingsSaver(SettingsSaver* settingsSaver); 
 
       static bool isInitialized();
+      static void setCacheEnabled(bool enabled);
+
     private:
       static QString _deleteQueryTemplate;
       static QString _removeQueryTemplate;
@@ -161,6 +165,12 @@ namespace GGS {
       static SettingsSaver* _settingsSaver;
 
       static bool _isInitialized;
+
+      static bool _isCacheEnabled;
+      static QMutex _cacheMutex;
+      static QHash<QString, QVariant> _cache;
+      static bool tryGetFromCache(const QString& normalizedKey, QVariant& result);
+      static void putToCache(const QString& normalizedKey, const QVariant& value);
     };
   }
 }
