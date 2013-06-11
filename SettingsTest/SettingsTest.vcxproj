@@ -28,11 +28,11 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing SerializeTestClass.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -D_DEBUG -DQT_LARGEFILE_SUPPORT -DQT_CORE_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_DLL -D_UNICODE "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtSql" "-I$(ProjectDir)include" "-I$(VLDDIR)\include" "-I." "-I.\..\Settings\include" "-I$(QGNACOMMONDIR)\Google\gtest\1.6.0\include"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -D_DEBUG -DQT_LARGEFILE_SUPPORT -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_DLL -DQT_CORE_LIB -DQT_SQL_LIB -DQT_CONCURRENT_LIB -D_UNICODE  "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(ProjectDir)include" "-I$(VLDDIR)\include" "-I." "-I.\..\Settings\include" "-I$(QGNACOMMONDIR)\Google\gtest\1.6.0\include" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtSql" "-I$(QTDIR)\include\QtConcurrent"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing SerializeTestClass.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_NETWORK_LIB -DQT_DLL "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtSql" "-I$(ProjectDir)include" "-I$(VLDDIR)\include" "-I." "-I.\..\Settings\include" "-I$(QGNACOMMONDIR)\Google\gtest\1.6.0\include"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_LARGEFILE_SUPPORT -DQT_NO_DEBUG -DNDEBUG -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_DLL -DQT_CORE_LIB -DQT_SQL_LIB -DQT_CONCURRENT_LIB  "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(ProjectDir)include" "-I$(VLDDIR)\include" "-I." "-I.\..\Settings\include" "-I$(QGNACOMMONDIR)\Google\gtest\1.6.0\include" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtSql" "-I$(QTDIR)\include\QtConcurrent"</Command>
     </CustomBuild>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -74,11 +74,11 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>UNICODE;WIN32;_DEBUG;QT_LARGEFILE_SUPPORT;QT_CORE_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>UNICODE;WIN32;_DEBUG;QT_LARGEFILE_SUPPORT;QT_GUI_LIB;QT_NETWORK_LIB;QT_DLL;QT_CORE_LIB;QT_SQL_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtSql;$(ProjectDir)include;$(VLDDIR)\include;.\;.\..\Settings\include;$(QGNACOMMONDIR)\Google\gtest\1.6.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(ProjectDir)include;$(VLDDIR)\include;.\;.\..\Settings\include;$(QGNACOMMONDIR)\Google\gtest\1.6.0\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtConcurrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
     </ClCompile>
     <Link>
@@ -86,7 +86,7 @@
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;$(ProjectDir)lib;$(QGNACOMMONDIR)\Google\gtest\1.6.0\lib;$(VLDDIR)\lib\Win32;$(SolutionDir)!build\Settings\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>qtmaind.lib;QtCored4.lib;QtXmld4.lib;QtSqld4.lib;SettingsX86d.lib;gtestd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>qtmaind.lib;SettingsX86d.lib;gtestd.lib;Qt5Cored.lib;Qt5Sqld.lib;Qt5Concurrentd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>xcopy /Y /I /R $(TargetDir)..\..\Settings\$(ConfigurationName)\*.dll $(TargetDir)</Command>
@@ -97,22 +97,21 @@ IF "$(Configuration)"=="Debug" (
      SET D=d
 )
 
-xcopy /Y /I /R /E "$(QTDIR)\bin\QtCore%D%4.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\QtGui%D%4.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\QtXml%D%4.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\QtSql%D%4.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\QtNetwork%D%4.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\QtDeclarative%D%4.dll" "$(TargetDir)"
+xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Core%D%.dll" "$(TargetDir)"
+xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Concurrent%D%.dll" "$(TargetDir)"
+xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Sql%D%.dll" "$(TargetDir)"
+
+
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PreprocessorDefinitions>UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_XML_LIB;QT_NETWORK_LIB;QT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>UNICODE;WIN32;QT_LARGEFILE_SUPPORT;QT_NO_DEBUG;NDEBUG;QT_GUI_LIB;QT_NETWORK_LIB;QT_DLL;QT_CORE_LIB;QT_SQL_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>
       </DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtSql;$(ProjectDir)include;$(VLDDIR)\include;.\;.\..\Settings\include;$(QGNACOMMONDIR)\Google\gtest\1.6.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(ProjectDir)include;$(VLDDIR)\include;.\;.\..\Settings\include;$(QGNACOMMONDIR)\Google\gtest\1.6.0\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtConcurrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
     </ClCompile>
     <Link>
@@ -120,7 +119,7 @@ xcopy /Y /I /R /E "$(QTDIR)\bin\QtDeclarative%D%4.dll" "$(TargetDir)"
       <OutputFile>$(TargetPath)</OutputFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;$(ProjectDir)lib;$(QGNACOMMONDIR)\Google\gtest\1.6.0\lib;$(VLDDIR)\lib\Win32;$(SolutionDir)!build\Settings\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>qtmain.lib;QtCore4.lib;QtXml4.lib;QtSql4.lib;SettingsX86.lib;gtest.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>qtmain.lib;SettingsX86.lib;gtest.lib;Qt5Core.lib;Qt5Sql.lib;Qt5Concurrent.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>xcopy /Y /I /R $(TargetDir)..\..\Settings\$(ConfigurationName)\*.dll $(TargetDir)</Command>
@@ -131,12 +130,9 @@ IF "$(Configuration)"=="Debug" (
      SET D=d
 )
 
-xcopy /Y /I /R /E "$(QTDIR)\bin\QtCore%D%4.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\QtGui%D%4.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\QtXml%D%4.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\QtSql%D%4.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\QtNetwork%D%4.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\QtDeclarative%D%4.dll" "$(TargetDir)"</Command>
+xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Core%D%.dll" "$(TargetDir)"
+xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Concurrent%D%.dll" "$(TargetDir)"
+xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Sql%D%.dll" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
@@ -144,7 +140,7 @@ xcopy /Y /I /R /E "$(QTDIR)\bin\QtDeclarative%D%4.dll" "$(TargetDir)"</Command>
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties UicDir=".\GeneratedFiles" MocDir=".\GeneratedFiles\$(ConfigurationName)" MocOptions="" RccDir=".\GeneratedFiles" lupdateOnBuild="0" lupdateOptions="" lreleaseOptions="" QtVersion_x0020_Win32="$(DefaultQtVersion)" />
+      <UserProperties UicDir=".\GeneratedFiles" MocDir=".\GeneratedFiles\$(ConfigurationName)" MocOptions="" RccDir=".\GeneratedFiles" lupdateOnBuild="0" lupdateOptions="" lreleaseOptions="" QtVersion_x0020_Win32="$(DefaultQtVersion)" Qt5Version_x0020_Win32="$(DefaultQtVersion)" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

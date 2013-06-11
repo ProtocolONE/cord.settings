@@ -4,6 +4,8 @@
 #include <QtCore/QObject>
 #include <QtCore/QString>
 #include <QtCore/QMetaType>
+#include <QtCore/QDataStream>
+
 class SerializeTestClass : public QObject 
 {
   Q_OBJECT
