@@ -76,6 +76,9 @@
     <ClInclude Include="include\Settings\settings_global.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="i18n\Settings_en.ts">
@@ -84,5 +87,8 @@
     <None Include="i18n\Settings_ru.ts">
       <Filter>Translation Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Settings.rc" />
   </ItemGroup>
 </Project>

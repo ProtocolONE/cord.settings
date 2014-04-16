@@ -49,6 +49,7 @@
   <ItemGroup>
     <ClInclude Include="include\Settings\InitializeHelper.h" />
     <ClInclude Include="include\Settings\settings_global.h" />
+    <ClInclude Include="resource.h" />
     <CustomBuild Include="include\Settings\Settings.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing Settings.h...</Message>
@@ -73,6 +74,9 @@
   <ItemGroup>
     <None Include="i18n\Settings_en.ts" />
     <None Include="i18n\Settings_ru.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Settings.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{73F98D23-AC4A-3FF8-BA86-6B2825C19169}</ProjectGuid>
