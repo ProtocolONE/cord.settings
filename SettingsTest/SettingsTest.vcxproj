@@ -101,8 +101,11 @@ xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Core%D%.dll" "$(TargetDir)"
 xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Concurrent%D%.dll" "$(TargetDir)"
 xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Sql%D%.dll" "$(TargetDir)"
 
+xcopy /Y /I /R /E "$(QTDIR)\plugins\sqldrivers\qsqlite%D%.dll" "$(TargetDir)plugins\sqldrivers\"
 
-</Command>
+xcopy /Y /I /R "$(QTDIR)\bin\icudt53.dll" "$(TargetDir)"
+xcopy /Y /I /R "$(QTDIR)\bin\icuin53.dll" "$(TargetDir)"
+xcopy /Y /I /R "$(QTDIR)\bin\icuuc53.dll" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -132,7 +135,13 @@ IF "$(Configuration)"=="Debug" (
 
 xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Core%D%.dll" "$(TargetDir)"
 xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Concurrent%D%.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Sql%D%.dll" "$(TargetDir)"</Command>
+xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Sql%D%.dll" "$(TargetDir)"
+
+xcopy /Y /I /R /E "$(QTDIR)\plugins\sqldrivers\qsqlite%D%.dll" "$(TargetDir)plugins\sqldrivers\"
+
+xcopy /Y /I /R "$(QTDIR)\bin\icudt53.dll" "$(TargetDir)"
+xcopy /Y /I /R "$(QTDIR)\bin\icuin53.dll" "$(TargetDir)"
+xcopy /Y /I /R "$(QTDIR)\bin\icuuc53.dll" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

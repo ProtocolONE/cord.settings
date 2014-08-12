@@ -39,7 +39,7 @@ namespace GGS {
       QSqlDatabase db = QSqlDatabase::database(this->_settingsPrivate->connection);
 
       this->_deleteQueryTemplate = QString("DELETE FROM %1").arg( db.driver()->escapeIdentifier(SettingsPrivate::table, QSqlDriver::TableName));
-      _removeQueryTemplate = QString("DELETE FROM %1 WHERE %2==?").arg( db.driver()->escapeIdentifier(SettingsPrivate::table, QSqlDriver::TableName), 
+      _removeQueryTemplate = QString("DELETE FROM %1 WHERE %2 LIKE ?").arg( db.driver()->escapeIdentifier(SettingsPrivate::table, QSqlDriver::TableName), 
         db.driver()->escapeIdentifier(SettingsPrivate::keyColumn, QSqlDriver::FieldName));
 
       this->_replaceQueryTemplate = QString("REPLACE INTO %1(%2, %3) VALUES (?, ?)").arg(db.driver()->escapeIdentifier(SettingsPrivate::table, QSqlDriver::TableName)
@@ -184,7 +184,7 @@ namespace GGS {
         QSqlDatabase db = QSqlDatabase::database(this->_settingsPrivate->connection);
         QSqlQuery sqlQuery(db);
         sqlQuery.prepare(removeQueryTemplate());
-        sqlQuery.addBindValue(key);
+        sqlQuery.addBindValue(key + '%');
 
         if (!(sqlQuery.exec()))
         {
