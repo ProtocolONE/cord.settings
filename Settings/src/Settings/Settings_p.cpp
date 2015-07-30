@@ -4,6 +4,7 @@
 #include <QtCore/QMutex>
 #include <QtCore/QStringList>
 #include <QtCore/QStack>
+#include <QtCore/QDataStream>
 #include <QtSql/QSqlDriver>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlRecord>
