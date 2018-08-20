@@ -17,7 +17,7 @@
 
 #include "SerializeTestClass.h"
 
-using namespace GGS::Settings;
+using namespace P1::Settings;
 
 TEST(serializeTests, toQByteArray)
 {

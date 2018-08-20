@@ -1,15 +1,4 @@
-/****************************************************************************
-** This file is a part of Syncopate Limited GameNet Application or it parts.
-**
-** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates. 
-** All rights reserved.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-****************************************************************************/
-
-#ifndef _GGS_SETTINGS_QTSQLSETTING_P_H
-#define _GGS_SETTINGS_QTSQLSETTING_P_H
+#pragma once
 
 #include <Settings/settings_global.h>
 
@@ -23,7 +12,7 @@
 #include <QtCore/QRect>
 #endif  //#ifndef QT_NO_GEOM_VARIANT
 
-namespace GGS {
+namespace P1 {
     namespace Settings {
 
         class QSettingsGroup
@@ -102,4 +91,3 @@ namespace GGS {
         };
     }
 }
-#endif //#ifndef _GGS_SETTINGS_QTSQLSETTING_P_H

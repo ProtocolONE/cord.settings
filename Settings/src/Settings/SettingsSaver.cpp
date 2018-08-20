@@ -1,7 +1,7 @@
 #include <Settings/SettingsSaver.h>
 #include <Settings/Settings.h>
 
-namespace GGS {
+namespace P1 {
   namespace Settings {
 
     SettingsSaver::SettingsSaver(QObject *parent)

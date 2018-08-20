@@ -1,5 +1,4 @@
-#ifndef _GGS_SETTINGS_TEST_SERIALIZETESTCLASS_H_
-#define _GGS_SETTINGS_TEST_SERIALIZETESTCLASS_H_
+#pragma once
 
 #include <QtCore/QObject>
 #include <QtCore/QString>
@@ -24,4 +23,3 @@ Q_DECLARE_METATYPE(SerializeTestClass *);
 
 QDataStream& operator<<( QDataStream& stream, const SerializeTestClass& c);
 QDataStream& operator>>( QDataStream& stream, SerializeTestClass& c);
-#endif // _GGS_SETTINGS_TEST_SERIALIZETESTCLASS_H_

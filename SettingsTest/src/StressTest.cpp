@@ -5,7 +5,7 @@
 
 #include <QtConcurrentRun>
 
-using namespace GGS::Settings;
+using namespace P1::Settings;
 
 class StressTest : public ::testing::Test
 {
@@ -74,16 +74,3 @@ public:
   }
 };
 
-
-// UNDONE !!!!!!!!!!! падает ThreadedTest
-//TEST_F(StressTest, ThreadedStressTest)
-//{
-//  testLoopWith10Thread(10, true);
-//  testIsDataValidForTestLoop(10);
-//}
-//
-//TEST_F(StressTest, AsyncThreadedStressTest)
-//{
-//  testLoopWith10Thread(1000, false);
-//  testIsDataValidForTestLoop(1000);
-//}

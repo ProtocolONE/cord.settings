@@ -8,7 +8,7 @@
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
 
-namespace GGS {
+namespace P1 {
   namespace Settings {
     InitializeHelper::InitializeHelper()
       : _recreate(false),

@@ -12,7 +12,7 @@
 #include <QtSql/QSqlError>
 #include <QSqlDatabase>
 
-namespace GGS {
+namespace P1 {
     namespace Settings {
 
         QString SettingsPrivate::connection = QString("");

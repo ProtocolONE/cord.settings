@@ -7,7 +7,7 @@
 
 #include <QtSql/QSqlDatabase>
 
-using namespace GGS::Settings;
+using namespace P1::Settings;
 
 TEST(InitializeHelperTest, defaultSettingsTest)
 {

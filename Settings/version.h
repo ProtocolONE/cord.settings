@@ -1,15 +1,6 @@
-/****************************************************************************
-** This file is a part of Syncopate Limited GameNet Application or it parts.
-**
-** Copyright (©) 2011 - 2012, Syncopate Limited and/or affiliates. 
-** All rights reserved.
-**
-** This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE
-** WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-****************************************************************************/
+#pragma once
 
-#ifndef _GGS_AUTORUNHELPER_VERSION_H_
-#define _GGS_AUTORUNHELPER_VERSION_H_
+#ifndef SETTINGS_STATIC_LIB
 
 #ifndef HUDSON_BUILD
     #define FILEVER          1,0,0,0
@@ -17,7 +8,7 @@
     #define STRFILEVER       "1,0,0,0"
     #define STRPRODUCTVER    STRFILEVER
 
-    #define COMPANYNAME      "GGS"
+    #define COMPANYNAME      "Pone" // UNDONE
     #define FILEDESCRIPTION  "Developer version of Settings library"
     #define INTERNALNAME     "Settings"
     #define LEGALCOPYRIGHT   "Copyright(c) 2010 - 2012"
@@ -43,9 +34,5 @@
     #define PRODUCTNAME      "$$PRODUCTNAME$$"
 #endif
 
-#endif //_GGS_AUTORUNHELPER_VERSION_H_
-
-
-
-
+#endif
 

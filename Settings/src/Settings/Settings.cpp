@@ -14,7 +14,7 @@
 #include <QtCore/QRect>
 #endif  //#ifndef QT_NO_GEOM_VARIANT
 
-namespace GGS {
+namespace P1 {
   namespace Settings {
 
     QString Settings::_deleteQueryTemplate;

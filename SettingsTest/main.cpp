@@ -10,7 +10,7 @@
 
 #include "SerializeTestClass.h"
 
-using namespace GGS::Settings;
+using namespace P1::Settings;
 
 int run()
 { 
