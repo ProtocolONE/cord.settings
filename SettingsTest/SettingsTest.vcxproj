@@ -164,7 +164,7 @@ xcopy /Y /I /R "$(QTDIR)\bin\icuuc53.dll" "$(TargetDir)"</Command>
       <PreprocessorDefinitions>UNICODE;WIN32;_DEBUG;QT_GUI_LIB;QT_NETWORK_LIB;QT_DLL;QT_CORE_LIB;QT_SQL_LIB;QT_CONCURRENT_LIB;SETTINGS_STATIC_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(ProjectDir)include;.\;.\..\Settings\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtConcurrent;$(ProjectDir)deps;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
     </ClCompile>
@@ -241,7 +241,7 @@ xcopy /Y /I /R "$(QTDIR)\bin\icuuc53.dll" "$(TargetDir)"</Command>
       <PreprocessorDefinitions>UNICODE;WIN32;QT_NO_DEBUG;NDEBUG;QT_GUI_LIB;QT_NETWORK_LIB;QT_DLL;QT_CORE_LIB;QT_SQL_LIB;QT_CONCURRENT_LIB;SETTINGS_STATIC_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>
       </DebugInformationFormat>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(ProjectDir)include;.\;.\..\Settings\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtConcurrent;$(ProjectDir)deps;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
     </ClCompile>
