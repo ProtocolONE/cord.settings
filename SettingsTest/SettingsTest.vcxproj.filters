@@ -50,11 +50,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="deps\gmock-gtest-all.cc" />
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="include\SerializeTestClass.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
+    <ClCompile Include="GeneratedFiles\Static Release\moc_SerializeTestClass.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Static Debug\moc_SerializeTestClass.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="deps\gmock\gmock.h">
@@ -63,5 +64,10 @@
     <ClInclude Include="deps\gtest\gtest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="include\SerializeTestClass.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
 </Project>
