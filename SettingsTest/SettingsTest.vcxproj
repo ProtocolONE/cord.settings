@@ -9,24 +9,14 @@
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Static Debug|Win32">
-      <Configuration>Static Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Static Release|Win32">
-      <Configuration>Static Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="deps\gmock-gtest-all.cc" />
     <ClCompile Include="GeneratedFiles\Static Debug\moc_SerializeTestClass.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Static Release\moc_SerializeTestClass.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -39,16 +29,7 @@
   <ItemGroup>
     <ClInclude Include="deps\gmock\gmock.h" />
     <ClInclude Include="deps\gtest\gtest.h" />
-    <CustomBuild Include="include\SerializeTestClass.h">
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'">Moc%27ing %(Identity)...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_NO_DEBUG -DNDEBUG -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_DLL -DQT_CORE_LIB -DQT_SQL_LIB -DQT_CONCURRENT_LIB -DSETTINGS_STATIC_LIB -D_USING_V110_SDK71_ "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(ProjectDir)include" "-I." "-I.\..\Settings\include" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtSql" "-I$(QTDIR)\include\QtConcurrent" "-I$(ProjectDir)deps"</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'">Moc%27ing %(Identity)...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -D_DEBUG -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_DLL -DQT_CORE_LIB -DQT_SQL_LIB -DQT_CONCURRENT_LIB -DSETTINGS_STATIC_LIB -D_USING_V110_SDK71_ -D_UNICODE "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(ProjectDir)include" "-I." "-I.\..\Settings\include" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtSql" "-I$(QTDIR)\include\QtConcurrent" "-I$(ProjectDir)deps"</Command>
-    </CustomBuild>
+    <CustomBuild Include="include\SerializeTestClass.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BF8B9419-E66E-4286-B6DF-42ABE588D423}</ProjectGuid>
@@ -61,16 +42,7 @@
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141_xp</PlatformToolset>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v141_xp</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
@@ -79,41 +51,26 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\conan\conanbuildinfo_multi.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\conan\conanbuildinfo_multi.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
-    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
-    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'" />
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
-    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
-    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'" />
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)!build\$(ProjectName)\$(Configuration)\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'">$(SolutionDir)!build\$(ProjectName)\$(Configuration)\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)!build\$(ProjectName)\$(Configuration)\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'">$(SolutionDir)!build\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\!obj\$(Configuration)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'">$(SolutionDir)\!obj\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'">$(ProjectName)</TargetName>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\!obj\$(Configuration)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'">$(SolutionDir)\!obj\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -151,47 +108,6 @@ xcopy /Y /I /R "$(QTDIR)\bin\icuin53.dll" "$(TargetDir)"
 xcopy /Y /I /R "$(QTDIR)\bin\icuuc53.dll" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Static Debug|Win32'">
-    <ClCompile>
-      <PreprocessorDefinitions>UNICODE;WIN32;_DEBUG;QT_GUI_LIB;QT_NETWORK_LIB;QT_DLL;QT_CORE_LIB;QT_SQL_LIB;QT_CONCURRENT_LIB;SETTINGS_STATIC_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Optimization>Disabled</Optimization>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(ProjectDir)include;.\;.\..\Settings\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtConcurrent;$(ProjectDir)deps;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;$(ProjectDir)lib;$(SolutionDir)!build\Settings\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>qtmaind.lib;SettingsX86d.lib;Qt5Cored.lib;Qt5Sqld.lib;Qt5Concurrentd.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
-    <PostBuildEvent>
-      <Command>SET D=""
-IF "$(Configuration)"=="Debug" (
-     SET D=d
-)
-
-IF "$(Configuration)"=="Static Debug" (
-     SET D=d
-)
-
-xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Core%D%.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Concurrent%D%.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Sql%D%.dll" "$(TargetDir)"
-
-xcopy /Y /I /R /E "$(QTDIR)\plugins\sqldrivers\qsqlite%D%.dll" "$(TargetDir)plugins\sqldrivers\"
-
-xcopy /Y /I /R "$(QTDIR)\bin\icudt53.dll" "$(TargetDir)"
-xcopy /Y /I /R "$(QTDIR)\bin\icuin53.dll" "$(TargetDir)"
-xcopy /Y /I /R "$(QTDIR)\bin\icuuc53.dll" "$(TargetDir)"</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>UNICODE;WIN32;QT_NO_DEBUG;NDEBUG;QT_GUI_LIB;QT_NETWORK_LIB;QT_DLL;QT_CORE_LIB;QT_SQL_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -214,47 +130,6 @@ xcopy /Y /I /R "$(QTDIR)\bin\icuuc53.dll" "$(TargetDir)"</Command>
     <PostBuildEvent>
       <Command>SET D=""
 IF "$(Configuration)"=="Debug" (
-     SET D=d
-)
-
-xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Core%D%.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Concurrent%D%.dll" "$(TargetDir)"
-xcopy /Y /I /R /E "$(QTDIR)\bin\Qt5Sql%D%.dll" "$(TargetDir)"
-
-xcopy /Y /I /R /E "$(QTDIR)\plugins\sqldrivers\qsqlite%D%.dll" "$(TargetDir)plugins\sqldrivers\"
-
-xcopy /Y /I /R "$(QTDIR)\bin\icudt53.dll" "$(TargetDir)"
-xcopy /Y /I /R "$(QTDIR)\bin\icuin53.dll" "$(TargetDir)"
-xcopy /Y /I /R "$(QTDIR)\bin\icuuc53.dll" "$(TargetDir)"</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Static Release|Win32'">
-    <ClCompile>
-      <PreprocessorDefinitions>UNICODE;WIN32;QT_NO_DEBUG;NDEBUG;QT_GUI_LIB;QT_NETWORK_LIB;QT_DLL;QT_CORE_LIB;QT_SQL_LIB;QT_CONCURRENT_LIB;SETTINGS_STATIC_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <DebugInformationFormat>
-      </DebugInformationFormat>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(ProjectDir)include;.\;.\..\Settings\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtConcurrent;$(ProjectDir)deps;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <OutputFile>$(TargetPath)</OutputFile>
-      <AdditionalLibraryDirectories>$(QTDIR)\lib;$(ProjectDir)lib;$(SolutionDir)!build\Settings\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>qtmain.lib;SettingsX86.lib;Qt5Core.lib;Qt5Sql.lib;Qt5Concurrent.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
-    <PreBuildEvent>
-      <Command>
-      </Command>
-    </PreBuildEvent>
-    <PostBuildEvent>
-      <Command>SET D=""
-IF "$(Configuration)"=="Debug" (
-     SET D=d
-)
-
-IF "$(Configuration)"=="Static Debug" (
      SET D=d
 )
 

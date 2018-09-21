@@ -45,18 +45,6 @@
     <ClCompile Include="src\Settings\Settings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Static Release\moc_SettingsSaver.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Static Debug\moc_SettingsSaver.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Static Release\moc_Settings.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Static Debug\moc_Settings.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -84,11 +72,11 @@
     <ResourceCompile Include="Settings.rc" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="include\Settings\SettingsSaver.h">
+    <QtMoc Include="include\Settings\Settings.h">
       <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="include\Settings\Settings.h">
+    </QtMoc>
+    <QtMoc Include="include\Settings\SettingsSaver.h">
       <Filter>Header Files</Filter>
-    </CustomBuild>
+    </QtMoc>
   </ItemGroup>
 </Project>
